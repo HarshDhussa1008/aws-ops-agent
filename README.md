@@ -7,10 +7,12 @@ This project contains a Python-based AWS Operations Agent. The agent is designed
 ```
 aws-ops-agent/
 ├── app.py               # Main entry point for the application
+├── streamlit_app.py     # Streamlit-based web application for visualization
 ├── requirements.txt     # Python dependencies
 ├── .env                 # Environment variables (not tracked by Git)
 ├── .env.example         # Example environment variables file
 ├── .gitignore           # Git ignore rules
+├── README.md            # Project documentation
 ├── agent/               # Core agent logic
 │   ├── agent.py         # Agent implementation
 │   ├── tools.py         # Utility tools for the agent
@@ -51,10 +53,22 @@ aws-ops-agent/
 
 ## Usage
 
+### Run the Main Application
 Run the application using the following command:
 ```bash
 python app.py
 ```
+
+### Run the Streamlit Application
+To start the Streamlit-based web application, use:
+```bash
+streamlit run streamlit_app.py
+```
+
+## Example Queries
+
+- list stopped ec2 instances
+- show s3 buckets
 
 ## License
 
