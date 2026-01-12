@@ -1,0 +1,7 @@
+EC2 Stopped Instances SOP
+
+If EC2 instances are found in stopped state:
+1. Verify whether instances were stopped manually or by automation.
+2. Check CloudTrail for StopInstances events.
+3. Confirm IAM permissions of the caller.
+4. If stopped unintentionally, validate last known health metrics.
