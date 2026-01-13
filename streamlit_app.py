@@ -9,12 +9,21 @@ st.caption("Ask about your AWS infrastructure using natural language")
 if "history" not in st.session_state:
     st.session_state.history = []
 
+if "pending_action" not in st.session_state:
+    st.session_state.pending_action = None
+
 query = st.text_input("Ask a question about AWS:")
 
 if st.button("Run") and query:
     with st.spinner("Agent thinking..."):
         result = agent(query)
         answer = str(result)
+        
+        if "approval_required" in answer.lower():
+            if st.button("✅ Approve"):
+                st.session_state.pending_action = "approved"
+            if st.button("❌ Deny"):
+                st.session_state.pending_action = "denied"
 
     st.session_state.history.append((query, answer))
 
